@@ -1,20 +1,24 @@
 <?php
 declare(strict_types=1);
 
-namespace esp\office;
+namespace esp\helper\excel;
 
 use Generator;
+use function esp\helper\mk_dir;
 
 /**
  * 将文本导入 Excel Csv 并下载
+ *
+ * Class Csv
+ * @package esp\helper\excel
  */
 final class Csv
 {
-    public string $filename;
-    private array $header;
-    private bool $writeHead;
-    private string $space = ",";//或,
-    private bool $debug = false;
+    public $filename;
+    private $header;
+    private $writeHead;
+    private $space = ",";//或,
+    private $debug = false;
 
     /**
      * Csv constructor.
@@ -28,8 +32,7 @@ final class Csv
             $filename = _RUNTIME . "/{$rand}.csv";
         }
         if (substr($filename, -4) !== '.csv') $filename .= ".csv";
-        $path = dirname($filename);
-        if (!file_exists($path)) @mkdir($path, 0740, true);
+        mk_dir($filename);
 
         $this->filename = $filename;
         $this->writeHead = $writeHead;
@@ -62,7 +65,7 @@ final class Csv
      * @param array $data 导入的数据字段数和header要相同
      * @return $this
      */
-    public function assign(array $data): Csv
+    public function assign(array $data)
     {
         foreach ($data as $i => $rs) {
             $line = [];

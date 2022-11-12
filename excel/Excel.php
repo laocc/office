@@ -1,12 +1,14 @@
 <?php
 declare(strict_types=1);
 
-namespace esp\office;
+namespace esp\helper\excel;
 
-use Error;
+use esp\error\Error;
+use PHPExcel_Exception;
+use PHPExcel_Reader_Exception;
 
 /**
- * 基于phpoffice/phpspreadsheet
+ * 基于phpoffice/phpexcel，不过这个性能比不上phpoffice/phpspreadsheet
  *
  * Class Excel
  * @package library
