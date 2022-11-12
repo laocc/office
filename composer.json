@@ -1,0 +1,21 @@
+{
+  "name": "laocc/office",
+  "description": "php office",
+  "homepage": "https://github.com/laocc/office",
+  "authors": [
+    {
+      "name": "fazo",
+      "email": "fazo@qq.com"
+    }
+  ],
+  "require": {
+    "php": ">7.4.0",
+    "phpoffice/phpspreadsheet": "*",
+    "ext-json": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "esp\\session\\": "src/"
+    }
+  }
+}
